@@ -6,7 +6,7 @@ const connectDB = async () => {
     mongoose.connection.on("connected", () => console.log("✅ Database Connected"));
     mongoose.connection.on("error", (err) => console.error("❌ DB Error:", err));
 
-    await mongoose.connect(process.env.MONGODB_URI, {
+    await mongoose.connect(`${process.env.MONGODB_URI}/hotel-booking`, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
