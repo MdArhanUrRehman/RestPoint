@@ -51,7 +51,8 @@ const RoomDetails = () => {
             if (!isAvailable) {
                 return checkAvailability();
             } else {
-                const { data } = await axios.post('/api/bookings/book', { room: id, checkInDate, checkOutDate, guests, paymentMethod: "Pay At Hotel" }, { headers: { Authorization: `Bearer ${await getToken()}` } })
+                const { data } = await axios.post('/api/bookings/book', { room: id, checkInDate, checkOutDate, guests, paymentMethod: "Pay At Hotel" }, { headers: { Authorization: `Bearer ${await getToken()}` } });
+                console.log(data);
                 if (data.success) {
                     toast.success(data.message)
                     navigate('/my-bookings')
