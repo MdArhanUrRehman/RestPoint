@@ -7,7 +7,6 @@ const connectDB = async () => {
     mongoose.connection.on("error", (err) => console.error("❌ DB Error:", err));
 
     await mongoose.connect(process.env.MONGODB_URI, {
-      dbName: "hotel-booking", // safer than manually appending to URI
       useNewUrlParser: true,
       useUnifiedTopology: true,
       serverSelectionTimeoutMS: 10000, // 10s timeout
